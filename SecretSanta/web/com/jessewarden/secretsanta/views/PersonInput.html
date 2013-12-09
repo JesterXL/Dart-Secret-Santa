@@ -1,0 +1,17 @@
+<polymer-element name="person-input">
+  <template>
+  	<template if="{{state == 'edit'}}">
+	    <strong>First Name:</strong><input extends="input" value="{{person.firstName}}">
+	    <strong>Last Name:</strong><input extends="input" value="{{person.lastName}}">
+		<button on-click="{{onSaveChanges}}">Save</button>
+		<a href="#" on-click="{{onEditCancelClick}}">Cancel</a>
+	</template>
+	
+	<template if="{{state == 'view'}}">
+		<strong>First Name:</strong><span>{{person.firstName}}</span>
+		<strong>Last Name:</strong><span>{{person.lastName}}</span>
+		<a href="#" on-click="{{onEditClick}}">Edit</a>
+	</template>
+  </template>
+  <script type="application/dart" src="PersonInput.dart"></script>
+</polymer-element>
