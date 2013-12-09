@@ -1,0 +1,10 @@
+<polymer-element name="person-list">
+  <template>
+  	<ul>
+	  <template repeat="{{person in persons}}"">
+		    <li>{{person.firstName}} {{person.lastName}}</li>
+		</template>
+	  </template>
+  	</ul>
+  <script type="application/dart" src="PersonList.dart"></script>
+</polymer-element>
