@@ -22,8 +22,10 @@ class PersonInput extends PolymerElement
 		{
 			event.preventDefault();
 			onSaveChanges();
-			$["firstNameInput"].value = "";
-			$["lastNameInput"].value = "";
+			InputElement firstNameInput = $["firstNameInput"];
+			InputElement lastNameInput = $["lastNameInput"];
+			firstNameInput.value = "";
+			lastNameInput.value = "";
 			$["firstNameInput"].focus();
 		}
 	}
