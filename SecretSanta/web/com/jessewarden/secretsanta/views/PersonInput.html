@@ -1,7 +1,7 @@
 <polymer-element name="person-input">
   <template>
-    <strong>First Name:</strong><input id="firstNameInput" extends="input" value="{{person.firstName}}">
-    <strong>Last Name:</strong><input id="lastNameInput" extends="input" value="{{person.lastName}}">
+    <strong>First Name:</strong><input id="firstNameInput" extends="input" value="{{person.firstName}}" on-keyup="{{onInputKeyUp}}">
+    <strong>Last Name:</strong><input id="lastNameInput" extends="input" value="{{person.lastName}}" on-keyup="{{onInputKeyUp}}">
 	<button on-click="{{onSaveChanges}}">Add</button>
   </template>
   <script type="application/dart" src="PersonInput.dart"></script>
