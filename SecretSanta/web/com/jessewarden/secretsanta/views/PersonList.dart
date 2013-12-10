@@ -7,8 +7,8 @@ import 'dart:html';
 class PersonList extends PolymerElement
 {
 
-	@observable
-	List<PersonVO> persons = toObservable([new PersonVO("Jesse", "Warden")]);
+	@published
+	List<PersonVO> persons;
 	
 	PersonList.created() : super.created();
 	
