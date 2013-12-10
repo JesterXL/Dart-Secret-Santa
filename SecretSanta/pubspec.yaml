@@ -1,7 +1,9 @@
 name: SecretSanta
+author: Jesse Warden
 description: A sample Polymer application
+homepage: http://jessewarden.com/archives/dart/secretsanta/index.html
 dependencies:
-    polymer: any
+  polymer: any
 transformers:
 - polymer:
     entry_points: web/secretsanta.html

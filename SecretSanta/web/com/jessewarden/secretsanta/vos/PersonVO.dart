@@ -1,3 +1,5 @@
+library secretsantalib;
+
 class PersonVO
 {
 	String firstName;
