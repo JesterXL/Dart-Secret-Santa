@@ -1,12 +1,12 @@
 import 'package:polymer/polymer.dart';
-import '../vos/PersonVO.dart';
+import '../vos/Person.dart';
 
 @CustomTag('person-list')
 class PersonList extends PolymerElement
 {
 
 	@published
-	List<PersonVO> persons = toObservable([]);
+	List<Person> persons = toObservable([]);
 	
 	PersonList.created() : super.created();
 	

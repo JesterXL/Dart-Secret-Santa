@@ -1,6 +1,6 @@
 import 'package:polymer/polymer.dart';
 import 'dart:html';
-import 'vos/PersonVO.dart';
+import 'vos/Person.dart';
 import 'views/PersonList.dart';
 
 @CustomTag('secret-santa-app')
@@ -10,7 +10,7 @@ class SecretSantaApp extends PolymerElement
 	bool readyToGenerate = false;
 	
 	@observable
-	List<List<PersonVO>> secretSantas = toObservable([]);
+	List<List<Person>> secretSantas = toObservable([]);
 	
 	SecretSantaApp.created() : super.created()
 	{
@@ -21,18 +21,18 @@ class SecretSantaApp extends PolymerElement
 	{
 		PersonList personList = $["personList"];
 		personList.persons.clear();
-		personList.persons.add(new PersonVO("Zoe", "Washburne"));
-		personList.persons.add(new PersonVO("Hoban", "Washburne"));
-		personList.persons.add(new PersonVO("Malcolm", "Reynolds"));
-		personList.persons.add(new PersonVO("Simon", "Tam"));
-		personList.persons.add(new PersonVO("River", "Tam"));
-		personList.persons.add(new PersonVO("Buffy", "Summers"));
-		personList.persons.add(new PersonVO("Dawn", "Summers"));
-		personList.persons.add(new PersonVO("Jesse", "Warden"));
+		personList.persons.add(new Person("Zoe", "Washburne"));
+		personList.persons.add(new Person("Hoban", "Washburne"));
+		personList.persons.add(new Person("Malcolm", "Reynolds"));
+		personList.persons.add(new Person("Simon", "Tam"));
+		personList.persons.add(new Person("River", "Tam"));
+		personList.persons.add(new Person("Buffy", "Summers"));
+		personList.persons.add(new Person("Dawn", "Summers"));
+		personList.persons.add(new Person("Jesse", "Warden"));
 		checkReadyToGenerate();
 	}
 	
-	void addPerson(CustomEvent event, PersonVO detail, target)
+	void addPerson(CustomEvent event, Person detail, target)
 	{
 		PersonList personList = this.$["personList"];
 		personList.persons.add(detail);
@@ -55,17 +55,17 @@ class SecretSantaApp extends PolymerElement
 	void generateSecretSantas()
 	{
 		PersonList personList = this.$["personList"];
-		List<PersonVO> personsReference = personList.persons;
-		List<PersonVO> persons = [];
+		List<Person> personsReference = personList.persons;
+		List<Person> persons = [];
 		persons.addAll(personsReference);
 		secretSantas.clear();
 		
 		dynamic waitingList = [];
 		
-		persons.forEach((PersonVO person)
+		persons.forEach((Person person)
 		{
 			person.secretSanta = null;
-			Iterable exclusionsIterable = persons.where((PersonVO excludePerson)
+			Iterable exclusionsIterable = persons.where((Person excludePerson)
 			{
 				if(excludePerson == person || excludePerson.lastName == person.lastName)
 				{
@@ -84,14 +84,14 @@ class SecretSantaApp extends PolymerElement
 		
 		waitingList.forEach((dynamic waitingObject)
 		{
-			PersonVO personNeedsASecretSanta = waitingObject["person"];
-			List<PersonVO> waitingExclusions = waitingObject["exclusions"];
+			Person personNeedsASecretSanta = waitingObject["person"];
+			List<Person> waitingExclusions = waitingObject["exclusions"];
 			Function orElse()
 			{
 				print("orElse ran");
 			};
-			PersonVO targetSecretSanta;
-			persons.forEach((PersonVO person)
+			Person targetSecretSanta;
+			persons.forEach((Person person)
 			{
 				if(person.secretSanta == null && waitingExclusions.contains(person) == false)
 				{

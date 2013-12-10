@@ -1,5 +1,5 @@
 import 'package:polymer/polymer.dart';
-import '../vos/PersonVO.dart';
+import '../vos/Person.dart';
 import 'dart:html';
 
 @CustomTag('person-input')
@@ -7,7 +7,7 @@ class PersonInput extends PolymerElement
 {
 
 	@observable
-	PersonVO person = new PersonVO('', '');
+	Person person = new Person('', '');
 
 	PersonInput.created() : super.created();
 	
