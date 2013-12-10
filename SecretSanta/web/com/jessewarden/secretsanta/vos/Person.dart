@@ -1,16 +1,16 @@
 library secretsantalib;
 
-class PersonVO
+class Person
 {
 	String firstName;
 	String lastName;
-	PersonVO secretSanta;
+	Person secretSanta;
 	
-	PersonVO(this.firstName, this.lastName);
+	Person(this.firstName, this.lastName);
 	
-	PersonVO clone()
+	Person clone()
 	{
-		PersonVO vo = new PersonVO(firstName, lastName);
+		Person vo = new Person(firstName, lastName);
 		vo.secretSanta = secretSanta;
 		return vo;
 	}
