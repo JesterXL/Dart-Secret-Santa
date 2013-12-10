@@ -19,7 +19,8 @@ class SecretSantaApp extends PolymerElement
 	
 	void generateFixtures()
 	{
-		PersonList personList = this.$["personList"];
+		PersonList personList = $["personList"];
+		personList.persons.clear();
 		personList.persons.add(new PersonVO("Zoe", "Washburne"));
 		personList.persons.add(new PersonVO("Hoban", "Washburne"));
 		personList.persons.add(new PersonVO("Malcolm", "Reynolds"));
