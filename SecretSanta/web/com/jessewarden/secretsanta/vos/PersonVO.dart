@@ -2,11 +2,14 @@ class PersonVO
 {
 	String firstName;
 	String lastName;
+	PersonVO secretSanta;
 	
 	PersonVO(this.firstName, this.lastName);
 	
 	PersonVO clone()
 	{
-		return new PersonVO(firstName, lastName);
+		PersonVO vo = new PersonVO(firstName, lastName);
+		vo.secretSanta = secretSanta;
+		return vo;
 	}
 }
