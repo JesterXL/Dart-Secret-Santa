@@ -8,11 +8,6 @@ class PersonList extends PolymerElement
 	@observable
 	List<PersonVO> persons = toObservable([]);
 	
-//	void persons(List<PersonVO> value)
-//	{
-//		_persons = value;
-//	}
-	
 	PersonList.created() : super.created();
 	
 	

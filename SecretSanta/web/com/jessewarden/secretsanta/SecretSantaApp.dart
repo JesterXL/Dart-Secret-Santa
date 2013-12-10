@@ -1,4 +1,5 @@
 import 'package:polymer/polymer.dart';
+import 'dart:html';
 import 'vos/PersonVO.dart';
 
 @CustomTag('secret-santa-app')
@@ -7,10 +8,9 @@ class SecretSantaApp extends PolymerElement
 	
 	SecretSantaApp.created() : super.created();
 	
-	void addPerson()
+	void addPerson(CustomEvent event, PersonVO detail, target)
 	{
-		PersonVO vo = new PersonVO("test", "test");
-		this.$["personList"].persons.add(vo);
+		this.$["personList"].persons.add(detail);
 	}
 	
 }

@@ -6,15 +6,13 @@ class PersonInput extends PolymerElement
 {
 
 	@observable
-	PersonVO person;
+	PersonVO person = new PersonVO('', '');
 
 	PersonInput.created() : super.created();
 	
 	void onSaveChanges()
 	{
-		fire('add', canBubble: true);
+		fire('add', detail: person.clone(), canBubble: true);
 	}
-	
-	
 	
 }
