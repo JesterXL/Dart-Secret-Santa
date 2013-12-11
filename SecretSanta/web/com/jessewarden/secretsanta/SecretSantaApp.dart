@@ -20,15 +20,24 @@ class SecretSantaApp extends PolymerElement
 	void generateFixtures()
 	{
 		PersonList personList = $["personList"];
-		personList.persons.clear();
-		personList.persons.add(new Person("Zoe", "Washburne"));
-		personList.persons.add(new Person("Hoban", "Washburne"));
-		personList.persons.add(new Person("Malcolm", "Reynolds"));
-		personList.persons.add(new Person("Simon", "Tam"));
-		personList.persons.add(new Person("River", "Tam"));
-		personList.persons.add(new Person("Buffy", "Summers"));
-		personList.persons.add(new Person("Dawn", "Summers"));
-		personList.persons.add(new Person("Jesse", "Warden"));
+		List<Person> persons = personList.persons;
+		persons.clear();
+		Person testPerson = new Person("Zoe", "Washburne");
+		persons.add(testPerson);
+		testPerson = new Person("Hoban", "Washburne");
+		persons.add(testPerson);
+		testPerson = new Person("Malcolm", "Reynolds");
+		persons.add(testPerson);
+		testPerson = new Person("Simon", "Tam");
+		persons.add(testPerson);
+		testPerson = new Person("River", "Tam");
+		persons.add(testPerson);
+		testPerson = new Person("Buffy", "Summers");
+		persons.add(testPerson);
+		testPerson = new Person("Dawn", "Summers");
+		persons.add(testPerson);
+		testPerson = new Person("Jesse", "Warden");
+		persons.add(testPerson);
 		checkReadyToGenerate();
 	}
 	

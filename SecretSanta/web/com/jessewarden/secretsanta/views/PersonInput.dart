@@ -6,14 +6,13 @@ import 'dart:html';
 class PersonInput extends PolymerElement
 {
 
-	@observable
-	Person person = new Person('', '');
-
 	PersonInput.created() : super.created();
 	
 	void onSaveChanges()
 	{
-		fire('add', detail: person.clone(), canBubble: true);
+		InputElement firstNameInput = $["firstNameInput"];
+		InputElement lastNameInput = $["lastNameInput"];
+		fire('add', detail: new Person(firstNameInput.value, lastNameInput.value), canBubble: true);
 	}
 	
 	void onInputKeyUp(KeyboardEvent event)
